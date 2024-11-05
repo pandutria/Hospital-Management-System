@@ -43,9 +43,6 @@ namespace Hospital_Management_System
             if (cbName.SelectedValue != null)
             {
                 var doctor = new DataBaseDataContext().doctors.FirstOrDefault(x => x.id.Equals(cbName.SelectedValue));
-
-                DataStorage.doctorId = doctor.id;
-                DataStorage.doctorName = doctor.name;
             }
         }
 
@@ -56,8 +53,7 @@ namespace Hospital_Management_System
 
             if (id != null)
             {
-                DataStorage.patientId = id.id;
-                DataStorage.patientName = id.name;
+
             }
         }
 
@@ -80,11 +76,6 @@ namespace Hospital_Management_System
             }
         }
 
-        private void loadQuene()
-        {
-            
-        }
-
         private void FormNewMeeting_Load(object sender, EventArgs e)
         {
             loadCbCtg();
@@ -92,8 +83,16 @@ namespace Hospital_Management_System
 
         private void linkViewPatientData_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new FormMasterPatient().ShowDialog();
-            Hide();
+            DataBaseDataContext data = new DataBaseDataContext();
+            var dataPatient = data.patients.Where(x => x.name.Equals(tbPatientName.Text)).FirstOrDefault();
+            if (dataPatient != null)
+            {
+                new FormMasterPatient(dataPatient.name).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("User " + tbPatientName.Text + " tidak ada");
+            }
         }
 
 
@@ -104,15 +103,23 @@ namespace Hospital_Management_System
 
         private void linkViewDoctorData_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new FormMasterDoctor(null).ShowDialog();
-            Hide();
+            new FormMasterDoctor(cbName.Text).ShowDialog();
         }
 
 
         private void linkViewPatientRecord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new FormPatientRecord().ShowDialog();
-            Hide();
+            DataBaseDataContext data = new DataBaseDataContext();
+            var dataPatient = data.patients.Where(x=> x.name.Equals(tbPatientName.Text)).FirstOrDefault();
+            if(dataPatient!= null)
+            {
+                new FormPatientRecord(dataPatient.name).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("User "+ tbPatientName.Text + " tidak ada");
+            }
+           
         }
 
         private void btnSumbit_Click(object sender, EventArgs e)
@@ -144,12 +151,6 @@ namespace Hospital_Management_System
         {
 
         }
-
-      
-
-
-
-       
 
         private void cbName_SelectedIndexChanged(object sender, EventArgs e)
         {

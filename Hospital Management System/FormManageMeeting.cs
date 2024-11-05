@@ -27,7 +27,6 @@ namespace Hospital_Management_System
             {
                 dgvPayment.Rows.Add(item.date, item.meeting.patient.name, item.meeting.doctor.doctor_category.category, item.meeting.doctor.name, item.meeting.queue_number, btnPayment.Text = "Payment", item.id);
                 lblId.Text = item.id.ToString();
-                DataStorage.meetingId = item.id;
             }
         }
 

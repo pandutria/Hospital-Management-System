@@ -10,17 +10,5 @@ namespace Hospital_Management_System
     {
         public static int id;
         public static string name;
-
-        public static int docId;
-        public static string docName;
-
-        public static int patientId;
-        public static string patientName;
-
-        public static int doctorId;
-        public static string doctorName;
-
-        public static int meetingId;
-   
     }
 }

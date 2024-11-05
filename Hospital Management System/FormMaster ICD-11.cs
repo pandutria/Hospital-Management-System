@@ -15,7 +15,6 @@ namespace Hospital_Management_System
         public FormMaster_ICD_11()
         {
             InitializeComponent();
-
         }
 
         private void loadCbName()

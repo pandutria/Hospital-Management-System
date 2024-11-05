@@ -16,7 +16,7 @@ namespace Hospital_Management_System
         int currentSelectedRow = -1;
         private string name;
     
-        public FormMasterDoctor(string name)
+        public FormMasterDoctor(string name = null)
         {
             InitializeComponent();
             this.name = name;
@@ -70,7 +70,7 @@ namespace Hospital_Management_System
             loadDgv();
             loadCbCategory();
             cbCategory.SelectedValue = 0;
-            tbSearch.Text = DataStorage.doctorName + name;
+            tbSearch.Text = name;
             tbAddrees.Enabled = tbAsign.Enabled = tbBirth.Enabled = tbCategory.Enabled = tbEmail.Enabled = tbGender.Enabled = tbName.Enabled = tbPhoneNumber.Enabled = false;
         }
 

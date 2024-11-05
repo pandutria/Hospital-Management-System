@@ -12,16 +12,18 @@ namespace Hospital_Management_System
 {
     public partial class FormPatientRecord : Form
     {
-        public FormPatientRecord()
+        string patient;
+        public FormPatientRecord(string patientName)
         {
             InitializeComponent();
+            patient = patientName;
         }
 
         private void loadDgv()
         {
             dgvPateintRecord.Rows.Clear();
             var db = new DataBaseDataContext();
-            var PatientRecord = db.patient_records.Where(x => x.patient.name.Contains(DataStorage.patientName));
+            var PatientRecord = db.patient_records.Where(x => x.patient.name.Equals(patient));
 
             foreach (var item in PatientRecord)
             {
@@ -32,7 +34,7 @@ namespace Hospital_Management_System
         private void FormPatientRecord_Load(object sender, EventArgs e)
         {
             loadDgv();
-            lblName.Text = "Medical Record of " + DataStorage.patientName;
+            lblName.Text = "Medical Record of " + patient;
         }
 
         private void dgvPateintRecord_CellClick(object sender, DataGridViewCellEventArgs e)
