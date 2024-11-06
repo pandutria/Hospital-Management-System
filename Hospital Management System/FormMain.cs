@@ -62,7 +62,7 @@ namespace Hospital_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new FormPayment(null).Show();
+            new FormPayment().Show();
             Hide();
         }
 
