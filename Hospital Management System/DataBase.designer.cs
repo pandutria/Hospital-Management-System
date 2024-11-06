@@ -33,12 +33,12 @@ namespace Hospital_Management_System
     partial void Insertdoctor(doctor instance);
     partial void Updatedoctor(doctor instance);
     partial void Deletedoctor(doctor instance);
-    partial void Inserticd_11(icd_11 instance);
-    partial void Updateicd_11(icd_11 instance);
-    partial void Deleteicd_11(icd_11 instance);
     partial void Insertdoctor_category(doctor_category instance);
     partial void Updatedoctor_category(doctor_category instance);
     partial void Deletedoctor_category(doctor_category instance);
+    partial void Inserticd_11(icd_11 instance);
+    partial void Updateicd_11(icd_11 instance);
+    partial void Deleteicd_11(icd_11 instance);
     partial void Inserticd_11_doctor_recommendation(icd_11_doctor_recommendation instance);
     partial void Updateicd_11_doctor_recommendation(icd_11_doctor_recommendation instance);
     partial void Deleteicd_11_doctor_recommendation(icd_11_doctor_recommendation instance);
@@ -66,7 +66,7 @@ namespace Hospital_Management_System
     #endregion
 		
 		public DataBaseDataContext() : 
-				base(global::Hospital_Management_System.Properties.Settings.Default.DESKTOP_XXConnectionString1, mappingSource)
+				base(global::Hospital_Management_System.Properties.Settings.Default.DESKTOP_XXConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -103,19 +103,19 @@ namespace Hospital_Management_System
 			}
 		}
 		
-		public System.Data.Linq.Table<icd_11> icd_11s
-		{
-			get
-			{
-				return this.GetTable<icd_11>();
-			}
-		}
-		
 		public System.Data.Linq.Table<doctor_category> doctor_categories
 		{
 			get
 			{
 				return this.GetTable<doctor_category>();
+			}
+		}
+		
+		public System.Data.Linq.Table<icd_11> icd_11s
+		{
+			get
+			{
+				return this.GetTable<icd_11>();
 			}
 		}
 		
@@ -603,6 +603,220 @@ namespace Hospital_Management_System
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.doctor_category")]
+	public partial class doctor_category : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _category;
+		
+		private System.DateTime _created_at;
+		
+		private System.Nullable<System.DateTime> _last_updated_at;
+		
+		private System.Nullable<System.DateTime> _deleted_at;
+		
+		private EntitySet<doctor> _doctors;
+		
+		private EntitySet<icd_11_doctor_recommendation> _icd_11_doctor_recommendations;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OncategoryChanging(string value);
+    partial void OncategoryChanged();
+    partial void Oncreated_atChanging(System.DateTime value);
+    partial void Oncreated_atChanged();
+    partial void Onlast_updated_atChanging(System.Nullable<System.DateTime> value);
+    partial void Onlast_updated_atChanged();
+    partial void Ondeleted_atChanging(System.Nullable<System.DateTime> value);
+    partial void Ondeleted_atChanged();
+    #endregion
+		
+		public doctor_category()
+		{
+			this._doctors = new EntitySet<doctor>(new Action<doctor>(this.attach_doctors), new Action<doctor>(this.detach_doctors));
+			this._icd_11_doctor_recommendations = new EntitySet<icd_11_doctor_recommendation>(new Action<icd_11_doctor_recommendation>(this.attach_icd_11_doctor_recommendations), new Action<icd_11_doctor_recommendation>(this.detach_icd_11_doctor_recommendations));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string category
+		{
+			get
+			{
+				return this._category;
+			}
+			set
+			{
+				if ((this._category != value))
+				{
+					this.OncategoryChanging(value);
+					this.SendPropertyChanging();
+					this._category = value;
+					this.SendPropertyChanged("category");
+					this.OncategoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime NOT NULL")]
+		public System.DateTime created_at
+		{
+			get
+			{
+				return this._created_at;
+			}
+			set
+			{
+				if ((this._created_at != value))
+				{
+					this.Oncreated_atChanging(value);
+					this.SendPropertyChanging();
+					this._created_at = value;
+					this.SendPropertyChanged("created_at");
+					this.Oncreated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_last_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> last_updated_at
+		{
+			get
+			{
+				return this._last_updated_at;
+			}
+			set
+			{
+				if ((this._last_updated_at != value))
+				{
+					this.Onlast_updated_atChanging(value);
+					this.SendPropertyChanging();
+					this._last_updated_at = value;
+					this.SendPropertyChanged("last_updated_at");
+					this.Onlast_updated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deleted_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> deleted_at
+		{
+			get
+			{
+				return this._deleted_at;
+			}
+			set
+			{
+				if ((this._deleted_at != value))
+				{
+					this.Ondeleted_atChanging(value);
+					this.SendPropertyChanging();
+					this._deleted_at = value;
+					this.SendPropertyChanged("deleted_at");
+					this.Ondeleted_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="doctor_category_doctor", Storage="_doctors", ThisKey="id", OtherKey="doctor_category_id")]
+		public EntitySet<doctor> doctors
+		{
+			get
+			{
+				return this._doctors;
+			}
+			set
+			{
+				this._doctors.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="doctor_category_icd_11_doctor_recommendation", Storage="_icd_11_doctor_recommendations", ThisKey="id", OtherKey="doctor_category_id")]
+		public EntitySet<icd_11_doctor_recommendation> icd_11_doctor_recommendations
+		{
+			get
+			{
+				return this._icd_11_doctor_recommendations;
+			}
+			set
+			{
+				this._icd_11_doctor_recommendations.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_doctors(doctor entity)
+		{
+			this.SendPropertyChanging();
+			entity.doctor_category = this;
+		}
+		
+		private void detach_doctors(doctor entity)
+		{
+			this.SendPropertyChanging();
+			entity.doctor_category = null;
+		}
+		
+		private void attach_icd_11_doctor_recommendations(icd_11_doctor_recommendation entity)
+		{
+			this.SendPropertyChanging();
+			entity.doctor_category = this;
+		}
+		
+		private void detach_icd_11_doctor_recommendations(icd_11_doctor_recommendation entity)
+		{
+			this.SendPropertyChanging();
+			entity.doctor_category = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[icd-11]")]
 	public partial class icd_11 : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -838,220 +1052,6 @@ namespace Hospital_Management_System
 		{
 			this.SendPropertyChanging();
 			entity.icd_11 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.doctor_category")]
-	public partial class doctor_category : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _category;
-		
-		private System.DateTime _created_at;
-		
-		private System.Nullable<System.DateTime> _last_updated_at;
-		
-		private System.Nullable<System.DateTime> _deleted_at;
-		
-		private EntitySet<doctor> _doctors;
-		
-		private EntitySet<icd_11_doctor_recommendation> _icd_11_doctor_recommendations;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OncategoryChanging(string value);
-    partial void OncategoryChanged();
-    partial void Oncreated_atChanging(System.DateTime value);
-    partial void Oncreated_atChanged();
-    partial void Onlast_updated_atChanging(System.Nullable<System.DateTime> value);
-    partial void Onlast_updated_atChanged();
-    partial void Ondeleted_atChanging(System.Nullable<System.DateTime> value);
-    partial void Ondeleted_atChanged();
-    #endregion
-		
-		public doctor_category()
-		{
-			this._doctors = new EntitySet<doctor>(new Action<doctor>(this.attach_doctors), new Action<doctor>(this.detach_doctors));
-			this._icd_11_doctor_recommendations = new EntitySet<icd_11_doctor_recommendation>(new Action<icd_11_doctor_recommendation>(this.attach_icd_11_doctor_recommendations), new Action<icd_11_doctor_recommendation>(this.detach_icd_11_doctor_recommendations));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_category", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string category
-		{
-			get
-			{
-				return this._category;
-			}
-			set
-			{
-				if ((this._category != value))
-				{
-					this.OncategoryChanging(value);
-					this.SendPropertyChanging();
-					this._category = value;
-					this.SendPropertyChanged("category");
-					this.OncategoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime NOT NULL")]
-		public System.DateTime created_at
-		{
-			get
-			{
-				return this._created_at;
-			}
-			set
-			{
-				if ((this._created_at != value))
-				{
-					this.Oncreated_atChanging(value);
-					this.SendPropertyChanging();
-					this._created_at = value;
-					this.SendPropertyChanged("created_at");
-					this.Oncreated_atChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_last_updated_at", DbType="DateTime")]
-		public System.Nullable<System.DateTime> last_updated_at
-		{
-			get
-			{
-				return this._last_updated_at;
-			}
-			set
-			{
-				if ((this._last_updated_at != value))
-				{
-					this.Onlast_updated_atChanging(value);
-					this.SendPropertyChanging();
-					this._last_updated_at = value;
-					this.SendPropertyChanged("last_updated_at");
-					this.Onlast_updated_atChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deleted_at", DbType="DateTime")]
-		public System.Nullable<System.DateTime> deleted_at
-		{
-			get
-			{
-				return this._deleted_at;
-			}
-			set
-			{
-				if ((this._deleted_at != value))
-				{
-					this.Ondeleted_atChanging(value);
-					this.SendPropertyChanging();
-					this._deleted_at = value;
-					this.SendPropertyChanged("deleted_at");
-					this.Ondeleted_atChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="doctor_category_doctor", Storage="_doctors", ThisKey="id", OtherKey="doctor_category_id")]
-		public EntitySet<doctor> doctors
-		{
-			get
-			{
-				return this._doctors;
-			}
-			set
-			{
-				this._doctors.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="doctor_category_icd_11_doctor_recommendation", Storage="_icd_11_doctor_recommendations", ThisKey="id", OtherKey="doctor_category_id")]
-		public EntitySet<icd_11_doctor_recommendation> icd_11_doctor_recommendations
-		{
-			get
-			{
-				return this._icd_11_doctor_recommendations;
-			}
-			set
-			{
-				this._icd_11_doctor_recommendations.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_doctors(doctor entity)
-		{
-			this.SendPropertyChanging();
-			entity.doctor_category = this;
-		}
-		
-		private void detach_doctors(doctor entity)
-		{
-			this.SendPropertyChanging();
-			entity.doctor_category = null;
-		}
-		
-		private void attach_icd_11_doctor_recommendations(icd_11_doctor_recommendation entity)
-		{
-			this.SendPropertyChanging();
-			entity.doctor_category = this;
-		}
-		
-		private void detach_icd_11_doctor_recommendations(icd_11_doctor_recommendation entity)
-		{
-			this.SendPropertyChanging();
-			entity.doctor_category = null;
 		}
 	}
 	

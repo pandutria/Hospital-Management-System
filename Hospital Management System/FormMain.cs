@@ -21,7 +21,19 @@ namespace Hospital_Management_System
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = "Welcome, " + DataStorage.name;
+           
+        }
+
+        private void name()
+        {
+            var db = new DataBaseDataContext();
+            var getId = db.users.FirstOrDefault(x => x.id.Equals(DataStorage.id));
+
+            if (getId != null)
+            {
+                lblUsername.Text = "Welcome, "  + getId.username;
+            }
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

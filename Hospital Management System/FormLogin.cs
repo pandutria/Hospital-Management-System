@@ -22,15 +22,9 @@ namespace Hospital_Management_System
 
         private string convertSHA512(string text)
         {
-            using (var sha = new SHA512CryptoServiceProvider())
+            using (var sha = SHA512.Create())
             {
-                byte[] data = sha.ComputeHash(Encoding.ASCII.GetBytes(text));
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < data.Length; i++)
-                {
-                    sb.Append(data[i].ToString("X2"));
-                }
-                return sb.ToString();
+                return string.Concat(sha.ComputeHash(Encoding.ASCII.GetBytes(text)).Select(b => b.ToString("X2")));
             }
         }
 
@@ -53,15 +47,14 @@ namespace Hospital_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DataBaseDataContext data = new DataBaseDataContext();
+            var data = new DataBaseDataContext();
             var valid = data.users.Where(x => x.username.Equals(tbUsername.Text) && x.password.Equals(convertSHA512(tbPassword.Text))).FirstOrDefault();
             if (valid != null)
             {
                 DataStorage.id = valid.id;
                 DataStorage.name = valid.username;
-                FormMain mainForm = new FormMain();
-                mainForm.Show();
-                this.Hide();
+                new FormMain().Show();
+                Hide();
             }
             else
             {
