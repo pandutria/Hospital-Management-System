@@ -52,8 +52,7 @@ namespace Hospital_Management_System
 
                     docName.LinkClicked += (s, args) =>
                     {
-                        new FormMasterDoctor(item.name).Show();
-                        Hide();
+                        new FormMasterDoctor(item.name).ShowDialog();
                     };
 
                     subPanel.Controls.Add(docCtg);

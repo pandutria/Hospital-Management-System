@@ -21,67 +21,51 @@ namespace Hospital_Management_System
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-           
-        }
-
-        private void name()
-        {
-            var db = new DataBaseDataContext();
-            var getId = db.users.FirstOrDefault(x => x.id.Equals(DataStorage.id));
-
-            if (getId != null)
-            {
-                lblUsername.Text = "Welcome, "  + getId.username;
-            }
-
-        }
+            var username = DataStorage.name;
+            username = username.Replace("_", " ");
+            username = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(username.ToLower());
+            lblUsername.Text = "Welcome, " + username;
+          
+        }        
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             new FormLogin().Show();
-            Hide();
         }
 
         private void btnICD_Click(object sender, EventArgs e)
         {
             new FormMaster_ICD_11().Show();
-            Hide();
         }
 
         private void btnDoctor_Click(object sender, EventArgs e)
         {
             new FormMasterDoctor(null).Show();
-            Hide();
         }
 
         private void btnParent_Click(object sender, EventArgs e)
         {
             new FormMasterPatient().Show();
-            Hide();
         }
 
         private void btnNewMeeting_Click(object sender, EventArgs e)
         {
             new FormNewMeeting().Show();
-            Hide();
         }
 
         private void btnManageMeeting_Click(object sender, EventArgs e)
         {
             new FormManageMeeting().Show();
-            Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             new FormPayment().Show();
-            Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             new FormNewPayment().Show();
-            Hide();
         }
     }
 }

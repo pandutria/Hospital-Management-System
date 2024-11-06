@@ -41,18 +41,18 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(22, 19);
+            this.lblUsername.Location = new System.Drawing.Point(25, 24);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(85, 29);
+            this.lblUsername.Size = new System.Drawing.Size(98, 32);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "label1";
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(580, 21);
+            this.btnLogout.Location = new System.Drawing.Point(652, 26);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(95, 29);
+            this.btnLogout.Size = new System.Drawing.Size(107, 36);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -60,10 +60,10 @@
             // 
             // btnICD
             // 
-            this.btnICD.Location = new System.Drawing.Point(250, 111);
+            this.btnICD.Location = new System.Drawing.Point(281, 139);
             this.btnICD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnICD.Name = "btnICD";
-            this.btnICD.Size = new System.Drawing.Size(174, 30);
+            this.btnICD.Size = new System.Drawing.Size(196, 38);
             this.btnICD.TabIndex = 3;
             this.btnICD.Text = "Master ICD-11";
             this.btnICD.UseVisualStyleBackColor = true;
@@ -71,10 +71,10 @@
             // 
             // btnDoctor
             // 
-            this.btnDoctor.Location = new System.Drawing.Point(250, 146);
+            this.btnDoctor.Location = new System.Drawing.Point(281, 182);
             this.btnDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDoctor.Name = "btnDoctor";
-            this.btnDoctor.Size = new System.Drawing.Size(174, 30);
+            this.btnDoctor.Size = new System.Drawing.Size(196, 38);
             this.btnDoctor.TabIndex = 4;
             this.btnDoctor.Text = "Master Doctor";
             this.btnDoctor.UseVisualStyleBackColor = true;
@@ -82,10 +82,10 @@
             // 
             // btnParent
             // 
-            this.btnParent.Location = new System.Drawing.Point(250, 180);
+            this.btnParent.Location = new System.Drawing.Point(281, 225);
             this.btnParent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnParent.Name = "btnParent";
-            this.btnParent.Size = new System.Drawing.Size(174, 30);
+            this.btnParent.Size = new System.Drawing.Size(196, 38);
             this.btnParent.TabIndex = 5;
             this.btnParent.Text = "Master Patient";
             this.btnParent.UseVisualStyleBackColor = true;
@@ -93,10 +93,10 @@
             // 
             // btnNewMeeting
             // 
-            this.btnNewMeeting.Location = new System.Drawing.Point(250, 214);
+            this.btnNewMeeting.Location = new System.Drawing.Point(281, 268);
             this.btnNewMeeting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNewMeeting.Name = "btnNewMeeting";
-            this.btnNewMeeting.Size = new System.Drawing.Size(174, 30);
+            this.btnNewMeeting.Size = new System.Drawing.Size(196, 38);
             this.btnNewMeeting.TabIndex = 6;
             this.btnNewMeeting.Text = "New Meeting";
             this.btnNewMeeting.UseVisualStyleBackColor = true;
@@ -104,10 +104,10 @@
             // 
             // btnManageMeeting
             // 
-            this.btnManageMeeting.Location = new System.Drawing.Point(250, 249);
+            this.btnManageMeeting.Location = new System.Drawing.Point(281, 311);
             this.btnManageMeeting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageMeeting.Name = "btnManageMeeting";
-            this.btnManageMeeting.Size = new System.Drawing.Size(174, 30);
+            this.btnManageMeeting.Size = new System.Drawing.Size(196, 38);
             this.btnManageMeeting.TabIndex = 7;
             this.btnManageMeeting.Text = "Manage Meeting";
             this.btnManageMeeting.UseVisualStyleBackColor = true;
@@ -115,9 +115,9 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 360);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnManageMeeting);
             this.Controls.Add(this.btnNewMeeting);
             this.Controls.Add(this.btnParent);
@@ -127,6 +127,7 @@
             this.Controls.Add(this.lblUsername);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);

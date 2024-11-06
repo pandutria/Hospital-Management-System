@@ -28,7 +28,7 @@ namespace Hospital_Management_System
             var db = new DataBaseDataContext();
             var selectedCategory = cbCategory.SelectedValue?.ToString();
    
-            var doctor = db.doctors.Where(x => (selectedCategory == null ||
+            var doctor = db.doctors.Where(x => (x.deleted_at.Equals(null)) && (selectedCategory == null ||
             x.doctor_category.id.ToString().Contains(selectedCategory)) && (x.name.Contains(tbSearch.Text)
             || x.phone_number.Contains(tbSearch.Text) || x.email.Contains(tbSearch.Text)
             || x.gender.Contains(tbSearch.Text) || x.address.Contains(tbSearch.Text)));
@@ -37,7 +37,7 @@ namespace Hospital_Management_System
             {   
                 dgvDoctor.Rows.Add(Item.name, Item.phone_number, Item.email,
                 Item.date_of_birth, Item.doctor_category.category, Item.address,
-                Item.gender, Item.assigned_room, Item.last_updated_at);
+                Item.gender, Item.assigned_room, Item.last_updated_at, Item.deleted_at);
             }
         }
 

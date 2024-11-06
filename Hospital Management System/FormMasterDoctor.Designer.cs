@@ -29,20 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDoctor = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -66,6 +58,16 @@
             this.dESKTOP_XXXDataSet1 = new Hospital_Management_System.DESKTOP_XXXDataSet1();
             this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.doctorTableAdapter = new Hospital_Management_System.DESKTOP_XXXDataSet1TableAdapters.doctorTableAdapter();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoctor)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dESKTOP_XXXDataSet)).BeginInit();
@@ -113,6 +115,8 @@
             // 
             // dgvDoctor
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.dgvDoctor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDoctor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDoctor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoctor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -124,7 +128,8 @@
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Column9});
+            this.Column9,
+            this.Column10});
             this.dgvDoctor.Location = new System.Drawing.Point(33, 135);
             this.dgvDoctor.Name = "dgvDoctor";
             this.dgvDoctor.RowHeadersWidth = 62;
@@ -133,61 +138,6 @@
             this.dgvDoctor.TabIndex = 5;
             this.dgvDoctor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoctor_CellClick);
             this.dgvDoctor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoctor_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Name";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Phone Number";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Email";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Date of Birth";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Category";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Address";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Gender";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Assigned Room";
-            this.Column8.MinimumWidth = 8;
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Last Update";
-            this.Column9.MinimumWidth = 8;
-            this.Column9.Name = "Column9";
-            this.Column9.Visible = false;
             // 
             // label4
             // 
@@ -382,6 +332,68 @@
             // 
             this.doctorTableAdapter.ClearBeforeFill = true;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Name";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Phone Number";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Email";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Date of Birth";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Category";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Address";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Gender";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Assigned Room";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Last Update";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Deleted_at";
+            this.Column10.MinimumWidth = 8;
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
+            // 
             // FormMasterDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -395,6 +407,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormMasterDoctor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMasterDoctor";
             this.Load += new System.EventHandler(this.FormMasterDoctor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoctor)).EndInit();
@@ -434,6 +447,10 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label12;
+        private DESKTOP_XXXDataSet dESKTOP_XXXDataSet;
+        private DESKTOP_XXXDataSet1 dESKTOP_XXXDataSet1;
+        private System.Windows.Forms.BindingSource doctorBindingSource;
+        private DESKTOP_XXXDataSet1TableAdapters.doctorTableAdapter doctorTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -443,9 +460,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private DESKTOP_XXXDataSet dESKTOP_XXXDataSet;
-        private DESKTOP_XXXDataSet1 dESKTOP_XXXDataSet1;
-        private System.Windows.Forms.BindingSource doctorBindingSource;
-        private DESKTOP_XXXDataSet1TableAdapters.doctorTableAdapter doctorTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }

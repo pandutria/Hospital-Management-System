@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblName = new System.Windows.Forms.Label();
             this.dgvPateintRecord = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +51,8 @@
             // 
             // dgvPateintRecord
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.dgvPateintRecord.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPateintRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPateintRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPateintRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -106,6 +109,7 @@
             this.Controls.Add(this.dgvPateintRecord);
             this.Controls.Add(this.lblName);
             this.Name = "FormPatientRecord";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPatientRecord";
             this.Load += new System.EventHandler(this.FormPatientRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPateintRecord)).EndInit();

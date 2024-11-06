@@ -127,6 +127,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormNewPayment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNewPayment";
             this.Load += new System.EventHandler(this.FormNewPayment_Load);
             this.ResumeLayout(false);

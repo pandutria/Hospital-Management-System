@@ -25,7 +25,7 @@ namespace Hospital_Management_System
         {
             dgvPatient.Rows.Clear();
             var db = new DataBaseDataContext();
-            var patient = db.patients.Where(x => (x.name.Contains(tbSearch.Text)
+            var patient = db.patients.Where(x => (x.deleted_at.Equals(null)) && (x.name.Contains(tbSearch.Text)
             || x.phone_number.Contains(tbSearch.Text) || x.email.Contains(tbSearch.Text)
             || x.gender.Contains(tbSearch.Text) || x.address.Contains(tbSearch.Text)
             || x.blood_type.Contains(tbSearch.Text)));
@@ -33,7 +33,7 @@ namespace Hospital_Management_System
             foreach (var Item in patient)
             {
                 dgvPatient.Rows.Add(Item.name, Item.phone_number, Item.email,
-                Item.date_of_birth, Item.address, Item.gender, Item.blood_type, Item.last_updated_at);
+                Item.date_of_birth, Item.address, Item.gender, Item.blood_type, Item.last_updated_at,Item.deleted_at);
             }
         }
 

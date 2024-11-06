@@ -138,6 +138,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormMaster_ICD_11";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMaster_ICD_11";
             this.Load += new System.EventHandler(this.FormMaster_ICD_11_Load);
             this.groupBox1.ResumeLayout(false);

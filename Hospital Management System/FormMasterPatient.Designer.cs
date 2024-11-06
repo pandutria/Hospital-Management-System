@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).BeginInit();
             this.SuspendLayout();
@@ -234,6 +236,8 @@
             // 
             // dgvPatient
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            this.dgvPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -244,7 +248,8 @@
             this.Column5,
             this.Column6,
             this.Column7,
-            this.Column8});
+            this.Column8,
+            this.Column9});
             this.dgvPatient.Location = new System.Drawing.Point(28, 137);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.RowHeadersWidth = 62;
@@ -302,6 +307,13 @@
             this.Column8.Name = "Column8";
             this.Column8.Visible = false;
             // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Deleted_at";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
             // FormMasterPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -313,6 +325,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "FormMasterPatient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMasterPatient";
             this.Load += new System.EventHandler(this.FormMasterPatient_Load);
             this.groupBox1.ResumeLayout(false);
@@ -353,5 +366,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }

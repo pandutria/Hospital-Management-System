@@ -39,8 +39,7 @@ namespace Hospital_Management_System
         {
             if (e.ColumnIndex == dgvPayment.Columns["btnPayment"].Index)
             {
-                new FormPayment().Show();
-                Hide();
+                new FormPayment().ShowDialog();
             }
         }
 
