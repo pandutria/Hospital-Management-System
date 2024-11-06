@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Hospital_Management_System.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +45,8 @@ namespace Hospital_Management_System
             if (cbName.SelectedValue != null)
             {
                 var doctor = new DataBaseDataContext().doctors.FirstOrDefault(x => x.id.Equals(cbName.SelectedValue));
+                DataStorage.meetingRoom = doctor.assigned_room;
+                DataStorage.doctorId = doctor.id;
             }
         }
 
@@ -53,32 +57,15 @@ namespace Hospital_Management_System
 
             if (id != null)
             {
-
-            }
-        }
-
-        private void validateSchedule()
-        {
-            var db = new DataBaseDataContext();
-            var meeting = db.meetings.FirstOrDefault(x => x.doctor_id == Convert.ToInt32(cbName.SelectedValue) && x.date.Equals(dtMeeting.Value.Date));
-
-            if (meeting != null)
-            {
-                var time = db.meetings.Any(x => x.doctor_id == Convert.ToInt32(cbName.SelectedValue));
-
-                if (time != null)
-                {
-                    MessageBox.Show("jadwal sudah penuh");
-                } else
-                {
-                    
-                }
+                DataStorage.patientID = id.id;
             }
         }
 
         private void FormNewMeeting_Load(object sender, EventArgs e)
         {
             loadCbCtg();
+            Console.WriteLine(DataStorage.patientID);
+            Console.Write(DataStorage.meetingRoom);
         }
 
         private void linkViewPatientData_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -87,6 +74,7 @@ namespace Hospital_Management_System
             var dataPatient = data.patients.Where(x => x.name.Equals(tbPatientName.Text)).FirstOrDefault();
             if (dataPatient != null)
             {
+                DataStorage.patientID = dataPatient.id;
                 new FormMasterPatient(dataPatient.name).ShowDialog();
             }
             else
@@ -113,6 +101,7 @@ namespace Hospital_Management_System
             var dataPatient = data.patients.Where(x=> x.name.Equals(tbPatientName.Text)).FirstOrDefault();
             if(dataPatient!= null)
             {
+                DataStorage.patientID = dataPatient.id;
                 new FormPatientRecord(dataPatient.name).ShowDialog();
             }
             else
@@ -125,51 +114,36 @@ namespace Hospital_Management_System
         private void btnSumbit_Click(object sender, EventArgs e)
         {
             var db = new DataBaseDataContext();
-            meeting Meeting;
-
-            Meeting = new meeting();
-            db.meetings.InsertOnSubmit(Meeting);
-
-            if (Meeting != null)
-            {
-                Meeting.patient.name = tbPatientName.Text;
-                Meeting.doctor.name = cbName.Text;
-                Meeting.date = dtMeeting.MaxDate;
-                Meeting.room = null;
-                Meeting.queue_number = Convert.ToInt32(null);
-                Meeting.deleted_at = null;
-
-
-            }
-
+            var meeting = new meeting();
+            meeting.patient_id = DataStorage.patientID;
+            meeting.doctor_id = DataStorage.doctorId;
+            meeting.room = DataStorage.meetingRoom;
+            meeting.date = dtMeeting.Value;
+            meeting.queue_number = Convert.ToInt32(lblQueue.Text);
+            meeting.created_at = DateTime.Now;
+            db.meetings.InsertOnSubmit(meeting);
             db.SubmitChanges();
-            MessageBox.Show("suscses");
-
+            MessageBox.Show("success");
+            this.Close();
         }
 
         private void dtMeeting_ValueChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void cbName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpMeeting_ValueChanged(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
+            DataBaseDataContext data = new DataBaseDataContext();
+            var reschedule = data.meetings.Where(x => x.date.Equals(dtMeeting.Value) & x.patient_id.Equals(DataStorage.patientID)).FirstOrDefault();
+            var newSchedule = data.meetings.Where(x => x.date.Equals(dtMeeting.Value) && x.patient_id != DataStorage.patientID && x.room.Equals(DataStorage.meetingRoom)).FirstOrDefault();
+            if (reschedule != null)
+            {
+                MessageBox.Show("Pasien sudah memiliki jadwal silahkan reschedule");
+            }else if(newSchedule!= null){
+                lblQueue.Text = (newSchedule.queue_number+1).ToString();
+                Console.WriteLine(newSchedule.date);
+                Console.WriteLine(dtMeeting.Value.Date);
+            }
+            else
+            {
+                lblQueue.Text = "1";
+            }
         }
     }
 }

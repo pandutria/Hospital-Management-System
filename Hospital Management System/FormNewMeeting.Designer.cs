@@ -35,7 +35,7 @@
             this.linkViewPatientData = new System.Windows.Forms.LinkLabel();
             this.tbPatientName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblQuene = new System.Windows.Forms.Label();
+            this.lblQueue = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtMeeting = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,7 +69,6 @@
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Patient Name";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // groupBox1
             // 
@@ -85,7 +84,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chose Patient";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // linkViewPatientRecord
             // 
@@ -120,7 +118,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lblQuene);
+            this.groupBox2.Controls.Add(this.lblQueue);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.dtMeeting);
             this.groupBox2.Controls.Add(this.label3);
@@ -133,15 +131,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chose Date";
             // 
-            // lblQuene
+            // lblQueue
             // 
-            this.lblQuene.AutoSize = true;
-            this.lblQuene.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuene.Location = new System.Drawing.Point(156, 77);
-            this.lblQuene.Name = "lblQuene";
-            this.lblQuene.Size = new System.Drawing.Size(73, 17);
-            this.lblQuene.TabIndex = 6;
-            this.lblQuene.Text = "lblQuene";
+            this.lblQueue.AutoSize = true;
+            this.lblQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQueue.Location = new System.Drawing.Point(156, 77);
+            this.lblQueue.Name = "lblQueue";
+            this.lblQueue.Size = new System.Drawing.Size(28, 17);
+            this.lblQueue.TabIndex = 6;
+            this.lblQueue.Text = "XX";
             // 
             // label4
             // 
@@ -159,6 +157,7 @@
             this.dtMeeting.Name = "dtMeeting";
             this.dtMeeting.Size = new System.Drawing.Size(178, 22);
             this.dtMeeting.TabIndex = 1;
+            this.dtMeeting.Value = new System.DateTime(2024, 11, 6, 0, 0, 0, 0);
             this.dtMeeting.ValueChanged += new System.EventHandler(this.dtMeeting_ValueChanged);
             // 
             // label3
@@ -194,7 +193,6 @@
             this.cbName.Name = "cbName";
             this.cbName.Size = new System.Drawing.Size(199, 24);
             this.cbName.TabIndex = 7;
-            this.cbName.SelectedIndexChanged += new System.EventHandler(this.cbName_SelectedIndexChanged);
             this.cbName.SelectedValueChanged += new System.EventHandler(this.cbName_SelectedValueChanged);
             // 
             // cbCategory
@@ -291,6 +289,6 @@
         private System.Windows.Forms.Button btnSumbit;
         private System.Windows.Forms.ComboBox cbName;
         private System.Windows.Forms.ComboBox cbCategory;
-        private System.Windows.Forms.Label lblQuene;
+        private System.Windows.Forms.Label lblQueue;
     }
 }
