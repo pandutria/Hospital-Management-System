@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DESKTOP_XX" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-7K27D9ED;Initial Catalog=DESKTOP_XX;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="Hospital_Management_System.Properties.Settings" SettingsPropertyName="DESKTOP_XXConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=RII;Initial Catalog=DESKTOP_XX;Integrated Security=True" SettingsObjectName="Hospital_Management_System.Properties.Settings" SettingsPropertyName="DESKTOP_XXConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.doctor" Member="doctors">
     <Type Name="doctor">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -19,17 +19,6 @@
       <Association Name="doctor_category_doctor" Member="doctor_category" ThisKey="doctor_category_id" OtherKey="id" Type="doctor_category" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.doctor_category" Member="doctor_categories">
-    <Type Name="doctor_category">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="category" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="created_at" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="last_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="deleted_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="doctor_category_doctor" Member="doctors" ThisKey="id" OtherKey="doctor_category_id" Type="doctor" />
-      <Association Name="doctor_category_icd_11_doctor_recommendation" Member="icd_11_doctor_recommendations" ThisKey="id" OtherKey="doctor_category_id" Type="icd_11_doctor_recommendation" />
-    </Type>
-  </Table>
   <Table Name="dbo.[icd-11]" Member="icd_11s">
     <Type Name="icd_11">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -40,6 +29,17 @@
       <Column Name="deleted_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="icd_11_icd_11_doctor_recommendation" Member="icd_11_doctor_recommendations" ThisKey="id" OtherKey="icd_11_id" Type="icd_11_doctor_recommendation" />
       <Association Name="icd_11_icd_11_exclusion" Member="icd_11_exclusions" ThisKey="id" OtherKey="icd_11_id" Type="icd_11_exclusion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.doctor_category" Member="doctor_categories">
+    <Type Name="doctor_category">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="category" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="last_updated_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="deleted_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="doctor_category_doctor" Member="doctors" ThisKey="id" OtherKey="doctor_category_id" Type="doctor" />
+      <Association Name="doctor_category_icd_11_doctor_recommendation" Member="icd_11_doctor_recommendations" ThisKey="id" OtherKey="doctor_category_id" Type="icd_11_doctor_recommendation" />
     </Type>
   </Table>
   <Table Name="dbo.[icd-11_doctor_recommendation]" Member="icd_11_doctor_recommendations">

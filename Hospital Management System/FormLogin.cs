@@ -53,11 +53,20 @@ namespace Hospital_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-              
-                new FormMain().Show();
-                Hide();
-            
+            DataBaseDataContext data = new DataBaseDataContext();
+            var valid = data.users.Where(x => x.username.Equals(tbUsername.Text) && x.password.Equals(convertSHA512(tbPassword.Text))).FirstOrDefault();
+            if (valid != null)
+            {
+                DataStorage.id = valid.id;
+                DataStorage.name = valid.username;
+                FormMain mainForm = new FormMain();
+                mainForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Username/Password salah");
+            }
         }
     }
 }

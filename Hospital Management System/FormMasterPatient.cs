@@ -13,11 +13,12 @@ namespace Hospital_Management_System
     public partial class FormMasterPatient : Form
     {
         int currentSelectedRow = -1;
+        string patient;
         
-        public FormMasterPatient()
+        public FormMasterPatient(string patientName = null)
         {
             InitializeComponent();
-
+            patient = patientName;
         }
 
         private void loadDgv()
@@ -39,7 +40,7 @@ namespace Hospital_Management_System
         private void FormMasterPatient_Load(object sender, EventArgs e)
         {
             loadDgv();
-            tbSearch.Text = DataStorage.patientName;
+            tbSearch.Text = patient;
             tbAddrees.Enabled = tbBirth.Enabled = tbEmail.Enabled = tbGender.Enabled = tbName.Enabled = tbPhoneNumber.Enabled = tbBlood.Enabled = false;
         }
 

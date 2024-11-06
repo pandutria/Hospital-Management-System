@@ -35,25 +35,24 @@
             this.btnParent = new System.Windows.Forms.Button();
             this.btnNewMeeting = new System.Windows.Forms.Button();
             this.btnManageMeeting = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(25, 24);
+            this.lblUsername.Location = new System.Drawing.Point(22, 19);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(98, 32);
+            this.lblUsername.Size = new System.Drawing.Size(85, 29);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "label1";
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(653, 26);
+            this.btnLogout.Location = new System.Drawing.Point(580, 21);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(107, 36);
+            this.btnLogout.Size = new System.Drawing.Size(95, 29);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -61,9 +60,10 @@
             // 
             // btnICD
             // 
-            this.btnICD.Location = new System.Drawing.Point(281, 139);
+            this.btnICD.Location = new System.Drawing.Point(250, 111);
+            this.btnICD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnICD.Name = "btnICD";
-            this.btnICD.Size = new System.Drawing.Size(196, 37);
+            this.btnICD.Size = new System.Drawing.Size(174, 30);
             this.btnICD.TabIndex = 3;
             this.btnICD.Text = "Master ICD-11";
             this.btnICD.UseVisualStyleBackColor = true;
@@ -71,9 +71,10 @@
             // 
             // btnDoctor
             // 
-            this.btnDoctor.Location = new System.Drawing.Point(281, 182);
+            this.btnDoctor.Location = new System.Drawing.Point(250, 146);
+            this.btnDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDoctor.Name = "btnDoctor";
-            this.btnDoctor.Size = new System.Drawing.Size(196, 37);
+            this.btnDoctor.Size = new System.Drawing.Size(174, 30);
             this.btnDoctor.TabIndex = 4;
             this.btnDoctor.Text = "Master Doctor";
             this.btnDoctor.UseVisualStyleBackColor = true;
@@ -81,19 +82,21 @@
             // 
             // btnParent
             // 
-            this.btnParent.Location = new System.Drawing.Point(281, 225);
+            this.btnParent.Location = new System.Drawing.Point(250, 180);
+            this.btnParent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnParent.Name = "btnParent";
-            this.btnParent.Size = new System.Drawing.Size(196, 37);
+            this.btnParent.Size = new System.Drawing.Size(174, 30);
             this.btnParent.TabIndex = 5;
-            this.btnParent.Text = "Master Parent";
+            this.btnParent.Text = "Master Patient";
             this.btnParent.UseVisualStyleBackColor = true;
             this.btnParent.Click += new System.EventHandler(this.btnParent_Click);
             // 
             // btnNewMeeting
             // 
-            this.btnNewMeeting.Location = new System.Drawing.Point(281, 268);
+            this.btnNewMeeting.Location = new System.Drawing.Point(250, 214);
+            this.btnNewMeeting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNewMeeting.Name = "btnNewMeeting";
-            this.btnNewMeeting.Size = new System.Drawing.Size(196, 37);
+            this.btnNewMeeting.Size = new System.Drawing.Size(174, 30);
             this.btnNewMeeting.TabIndex = 6;
             this.btnNewMeeting.Text = "New Meeting";
             this.btnNewMeeting.UseVisualStyleBackColor = true;
@@ -101,41 +104,20 @@
             // 
             // btnManageMeeting
             // 
-            this.btnManageMeeting.Location = new System.Drawing.Point(281, 311);
+            this.btnManageMeeting.Location = new System.Drawing.Point(250, 249);
+            this.btnManageMeeting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageMeeting.Name = "btnManageMeeting";
-            this.btnManageMeeting.Size = new System.Drawing.Size(196, 37);
+            this.btnManageMeeting.Size = new System.Drawing.Size(174, 30);
             this.btnManageMeeting.TabIndex = 7;
             this.btnManageMeeting.Text = "Manage Meeting";
             this.btnManageMeeting.UseVisualStyleBackColor = true;
             this.btnManageMeeting.Click += new System.EventHandler(this.btnManageMeeting_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(492, 165);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 37);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Master ICD-11";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(492, 225);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 37);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Master ICD-11";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(711, 360);
             this.Controls.Add(this.btnManageMeeting);
             this.Controls.Add(this.btnNewMeeting);
             this.Controls.Add(this.btnParent);
@@ -143,6 +125,7 @@
             this.Controls.Add(this.btnICD);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblUsername);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
             this.Text = "FormMain";
             this.Load += new System.EventHandler(this.FormMain_Load);
@@ -160,7 +143,5 @@
         private System.Windows.Forms.Button btnParent;
         private System.Windows.Forms.Button btnNewMeeting;
         private System.Windows.Forms.Button btnManageMeeting;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }
